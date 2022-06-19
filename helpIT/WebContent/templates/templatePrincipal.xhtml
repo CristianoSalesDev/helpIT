@@ -110,12 +110,12 @@
 					         <sec:ifAnyGranted roles="CADASTRO_ACESSAR, ADMIN">
 					         
 					            <p:submenu label="Cadastros" id="subMenuCadastro">
-					              
+					              <!-- 
 					                 <sec:ifAnyGranted roles="CARGO_ACESSAR, ADMIN">	 
 							            <p:menuitem value="Cargo" id="menuCargo" action="#{cargoBeanView.redirecionarFindEntidade}"
 							                        immediate="true"/>
  						             </sec:ifAnyGranted>					            
-					            
+					             -->
 					                 <sec:ifAnyGranted roles="CIDADE_ACESSAR, ADMIN">	 
 							            <p:menuitem value="Cidade" id="menuCidade" action="#{cidadeBeanView.redirecionarFindEntidade}"
 							                        immediate="true"/>
@@ -125,12 +125,12 @@
 							            <p:menuitem value="Funcionário" id="menuFuncionario" action="#{funcionarioBeanView.redirecionarFindEntidade}"
 							                        immediate="true"/>
  						             </sec:ifAnyGranted> 						             
- 						               
+                                   <!--  						               
 					                 <sec:ifAnyGranted roles="SETOR_ACESSAR, ADMIN">	 
 							            <p:menuitem value="Setor" id="menuSetor" action="#{setorBeanView.redirecionarFindEntidade}"
 							                        immediate="true"/>
  						             </sec:ifAnyGranted>
- 						              						             
+ 						            -->   						             
 					            </p:submenu>				            					            
 					             
 					         </sec:ifAnyGranted>
