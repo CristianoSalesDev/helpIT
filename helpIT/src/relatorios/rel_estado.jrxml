@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.12.2.final using JasperReports Library version 6.12.2-75c5e90a222ab406e416cbf590a5397028a52de3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rel_estado" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3e14bf5b-924b-435e-b03f-e7183fd26944">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="helpIT"/>
+	<parameter name="REPORT_PARAMETERS_IMG" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT 
+ est.id_estado, 
+ est.est_nome,
+ est.est_sigla
+ FROM estado est]]>
+	</queryString>
+	<field name="id_estado" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="id_estado"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="estado"/>
+	</field>
+	<field name="est_nome" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="est_nome"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="estado"/>
+	</field>
+	<field name="est_sigla" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="est_sigla"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="estado"/>
+	</field>
+	<group name="id_estado">
+		<groupExpression><![CDATA[$F{id_estado}]]></groupExpression>
+	</group>
+	<group name="est_nome">
+		<groupExpression><![CDATA[$F{est_nome}]]></groupExpression>
+	</group>
+	<group name="est_sigla">
+		<groupExpression><![CDATA[$F{est_sigla}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="52" splitType="Stretch">
+			<staticText>
+				<reportElement x="194" y="9" width="171" height="30" uuid="338d75b1-df06-47fa-8dc7-97168dd5265a"/>
+				<textElement>
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[Relatório de Estados]]></text>
+			</staticText>
+			<image>
+				<reportElement x="1" y="1" width="50" height="50" uuid="d6b2a4a6-f293-41e3-835a-39fd3f395c39"/>
+				<imageExpression><![CDATA[$P{REPORT_PARAMETERS_IMG} + "donizete-logo.png"]]></imageExpression>
+			</image>
+			<line>
+				<reportElement x="1" y="51" width="549" height="1" uuid="c363809a-32ea-48ac-a75a-b116350afdf6">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="23" splitType="Stretch">
+			<line>
+				<reportElement x="1" y="22" width="549" height="1" uuid="32352dde-44f2-44f4-905e-ee52f096494c">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</line>
+			<staticText>
+				<reportElement x="1" y="1" width="79" height="19" uuid="225878e1-9bce-4ef2-893b-d976efdd0134"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Código]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="81" y="1" width="100" height="19" uuid="3bcb9db2-9b95-4d41-9ffd-493ad62a005f"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Estado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="280" y="1" width="100" height="19" uuid="c94e8bd0-2c30-430c-9719-1d3fff8ec1ea"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[UF]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="1" y="1" width="79" height="19" uuid="9fc94fb6-c384-45e8-a47e-6af04cc2e023"/>
+				<textFieldExpression><![CDATA[$F{id_estado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="1" width="200" height="19" uuid="074e25b3-17f4-4727-8f2c-1c8bb822cbad"/>
+				<textFieldExpression><![CDATA[$F{est_nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="280" y="1" width="100" height="19" uuid="5c6b59d1-8795-4f7e-bbcc-33aa3cc6b161"/>
+				<textFieldExpression><![CDATA[$F{est_sigla}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<noData>
+		<band height="17">
+			<staticText>
+				<reportElement x="210" y="1" width="146" height="16" uuid="af8f0f66-9335-45c1-b25e-a18b1eac1a48"/>
+				<text><![CDATA[Não há dados para impressão]]></text>
+			</staticText>
+		</band>
+	</noData>
+</jasperReport>

@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title><ui:insert name="titulo">HelpIT</ui:insert></title>
+	<h:outputScript name="jquery.js" library="primefaces/jquery" />
+	<h:outputStylesheet name="estilo.css" library="css" />
+	<h:outputScript name="scripty.js" library="javascript" />
+</h:head>
+
+<h:body>
+    <div id="formlogin">
+    
+	    <h:panelGroup rendered="#{!empty param.login_error}">
+			
+ 	       <!--Motivo: #{SPRING_SECURITY_LAST_EXCEPTION.message}  -->
+		<div align="right">	
+		   <h:outputLabel rendered="#{SPRING_SECURITY_LAST_EXCEPTION.message == 'Bad credentials'}">
+			  <span class="estiloSpan">Permissão Negada, login ou senha incorretos.</span>
+		   </h:outputLabel> 
+		</div>
+		<div align="right">	  
+		   <h:outputLabel rendered="#{SPRING_SECURITY_LAST_EXCEPTION.message == 'Maximum sessions of 1 for this principal exceeded'}">
+			  <span class="estiloSpan">Você está logado em outra sessão.</span>
+			 	  <h:commandButton value="Encerrar" style="height:40px;width:100px;background:#CDCDC1;border: 1px;"
+					 onclick="invalidarSession('#{request.contextPath}', '/publico/invalidateSession')"/>
+		   </h:outputLabel>
+		</div>		
+	    </h:panelGroup>    
+    
+	       <form id="formulario" method="post" onsubmit="return validarSenhaLogin();"
+					name="formulario" action="#{request.contextPath}/j_spring_security_check">
+			
+			    <div>
+					<span style="display: block; padding-top: 50px; text-align: center">
+					   <!-- 
+					   <span style="display: inline-block; width: 50px; text-align: center">
+						 Login
+					   </span>					   
+					   <input type="text" name="j_username" id="j_username"/>
+					   -->  
+					    <p:outputLabel for="j_username" value="Login: "/>                       					    
+					    <p:inputText type="text" name="j_username" id="j_username"/>
+					</span>
+				</div> 
+				
+				<div>
+					<span style="display: block; padding-top: 20px; text-align: center">
+					   <!--
+					   <span style="display: inline-block; width: 50px; text-align: center">
+						 Senha
+					   </span>					   
+					    <input type="password" name="j_password" id="j_password"/>
+					    --> 
+					    <p:outputLabel for="j_password" value="Senha: "/>					    
+					    <p:inputText type="password" name="j_password" id="j_password"/>
+					</span>
+                </div>
+
+				<span style="display: block; padding-top: 5px; padding-right: 60px; text-align: right">
+				<span id="enviando"></span>
+					<button type="submit" class="blue" style="height:40px;width:100px;background:#008CBA;border: 2px solid #FFFFFF;color: white;" id="buttonLogin">
+						Entrar
+				 	</button>
+				</span>				
+
+				<!--
+                <span style="display: block; padding-top: 5px; padding-right: 60px; text-align: right">
+				   <p:button type="submit" value="Salvar" style="height:40px;width:100px;background:#0000ff;border: 1px;color: white;" id="buttonLogin"/>
+				</span>
+                -->				
+			</form>    
+        </div>   
+    
+<script type="text/javascript">
+
+	$("#j_username").focus(); 
+	
+</script>
+           
+</h:body>
+
+</html>

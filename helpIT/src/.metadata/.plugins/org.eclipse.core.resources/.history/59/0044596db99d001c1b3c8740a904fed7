@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.12.2.final using JasperReports Library version 6.12.2-75c5e90a222ab406e416cbf590a5397028a52de3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rel_cidade" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ec0fd238-5e41-43ca-b310-871fd431ba7c">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="helpIT"/>
+	<parameter name="REPORT_PARAMETERS_IMG" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT 
+cid.id_cidade,
+ cid.cid_descricao,
+ est.est_nome,
+ est.est_sigla
+FROM Cidade cid
+JOIN Estado est on (est.id_estado = cid.estado_id)]]>
+	</queryString>
+	<field name="id_cidade" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="id_cidade"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="cidade"/>
+	</field>
+	<field name="cid_descricao" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="cid_descricao"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="cidade"/>
+	</field>
+	<field name="est_nome" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="est_nome"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="estado"/>
+	</field>
+	<field name="est_sigla" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="est_sigla"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="estado"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="52" splitType="Stretch">
+			<staticText>
+				<reportElement x="166" y="10" width="229" height="30" uuid="567b5f65-09bb-4461-9bc7-4aec700848b1"/>
+				<textElement textAlignment="Center">
+					<font size="20"/>
+				</textElement>
+				<text><![CDATA[Relatório de Cidades]]></text>
+			</staticText>
+			<image>
+				<reportElement x="0" y="2" width="50" height="50" uuid="6f7d6c69-bc0d-4861-ab21-29adaaffca44"/>
+				<imageExpression><![CDATA[$P{REPORT_PARAMETERS_IMG} + "donizete-logo.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<detail>
+		<band height="31" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="70" height="20" uuid="f29528ed-fbaa-4ef9-a3ba-bf49e1d609da"/>
+				<textFieldExpression><![CDATA[$F{id_cidade}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="0" width="210" height="18" uuid="f562cdc5-1e35-4e18-aed2-60aeb19711e6"/>
+				<textFieldExpression><![CDATA[$F{cid_descricao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="301" y="1" width="169" height="19" uuid="5e004b57-86da-4bc5-a231-6718189fe19e"/>
+				<textFieldExpression><![CDATA[$F{est_nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="481" y="1" width="72" height="19" uuid="b146bfb0-baa5-4453-8ae9-7162e1b71c1d"/>
+				<textFieldExpression><![CDATA[$F{est_sigla}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<noData>
+		<band height="50">
+			<textField pattern="dd/MM/yyyy h:mm:ss a z">
+				<reportElement x="453" y="3" width="100" height="17" uuid="b534eede-5b90-4b06-9881-ed1dd03ca3fd"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</noData>
+</jasperReport>
