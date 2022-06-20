@@ -12,7 +12,7 @@
 	
 	   <ui:define name="corpo">
 	   
-	      <p:panel header="Cadastro de Funcionarios" header-text="color: white;" id="panelTituloCidade" style="text-align: center; background: #C4C2C1;">
+	      <p:panel header="Cadastro de Funcionários" header-text="color: white;" id="panelTituloCidade" style="text-align: center; background: #C4C2C1;">
 			     
 		  </p:panel>
 			
@@ -48,18 +48,18 @@
 	      </h:form>
 	      
           <script type="text/javascript" charset="UTF-8">
-			addFocoAoCampo('cidadeNome');
+			addFocoAoCampo('funcNome');
 			gerenciaTeclaEnter();
 		  </script>	   
 	      
           <div class="espacoBranco"/>	      
 	      
-	      <p:dataTable id="tableResult" value="#{cidadeBeanView.list}" var="objeto" 
+	      <p:dataTable id="tableResult" value="#{funcionarioBeanView.list}" var="objeto" 
 	                   emptyMessage="Não existem valores para exibição."
-	                   rendered="#{cidadeBeanView.list.list.size() > 0}" rows="10" paginator="true" paginatorPosition="bottom"
+	                   rendered="#{funcionarioBeanView.list.list.size() > 0}" rows="10" paginator="true" paginatorPosition="bottom"
 	                   paginatorTemplate=" {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}">
 	                   
-          <ui:include src="/resources/components/colunasDataTableCidade.xhtml"></ui:include>
+          <ui:include src="/resources/components/colunasDataTableFuncionario.xhtml"></ui:include>
           	                              
 	      </p:dataTable>
 	       	           	      
