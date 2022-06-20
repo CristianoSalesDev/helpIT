@@ -140,7 +140,7 @@ public class Entidade implements Serializable {
 	public void setAcessos(Set<String> acessos) {
 		this.acessos = acessos;
 	}
-
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

@@ -42,7 +42,7 @@ public class FuncionarioBeanView extends BeanManagedViewAbstract implements Seri
 	}
 
 	@Override
-	protected InterfaceCrud<?> getController() {
+	protected InterfaceCrud<Entidade> getController() {
 		
 		return entidadeController;
 	}
@@ -50,7 +50,7 @@ public class FuncionarioBeanView extends BeanManagedViewAbstract implements Seri
 	@Override
 	public String condicaoAndParaPesquisa() throws Exception {
 		
-		return " and entity.tipoEntidade = 'FUNCIONARIO' ";
+		return " and entity.tipoEntidade = 'FUNCIONARIO' ";		
 	}
 	
 	@Override
@@ -84,6 +84,7 @@ public class FuncionarioBeanView extends BeanManagedViewAbstract implements Seri
 	
 	@Override
 	public String novo() throws Exception {
+		setarVariaveisNulas();
 		return url;
 	}
 	

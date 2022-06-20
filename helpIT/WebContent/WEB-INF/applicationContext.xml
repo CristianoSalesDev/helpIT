@@ -121,21 +121,22 @@
 	<bean id="SetorController" class="br.com.helpIT.project.geral.controller.SetorController" />
 	<bean id="CargoController" class="br.com.helpIT.project.geral.controller.CargoController" />
 		
-    <!-- Repository / Daos-->
+    <!-- Repository e Daos
     <bean id="repositoryLogin" class="br.com.helpIT.dao.implementacao.DaoLogin" />
     <bean id="repositoryCidade" class="br.com.helpIT.dao.implementacao.DaoCidade" />
     <bean id="repositoryPais" class="br.com.helpIT.dao.implementacao.DaoPais" />
     <bean id="repositorySetor" class="br.com.helpIT.dao.implementacao.DaoSetor" />
     <bean id="repositoryEstado" class="br.com.helpIT.dao.implementacao.DaoEstado" />
     <bean id="repositoryEntidade" class="br.com.helpIT.dao.implementacao.DaoEntidade" />
-    <bean id="repositoryCargo" class="br.com.helpIT.dao.implementacao.DaoCargo" />
-   
-	<!-- Services --> 
+    <bean id="repositoryCargo" class="br.com.helpIT.dao.implementacao.DaoCargo" />    
+-->
+	<!-- Services   
 	<bean id="SrvLogin" class="br.com.helpIT.srv.implementacao.SrvLoginImpl" />
-	<bean id="SrvCidade" class="br.com.helpIT.srv.implementacao.SrvCidadeImpl" />
-	<bean id="SrvEntidade" class="br.com.helpIT.srv.implementacao.SrvEntidadeImpl" />
+	<bean id="SrvCidade" class="br.com.helpIT.srv.implementacao.SrvCidadeImpl" />	
 	<bean id="SrvEstado" class="br.com.helpIT.srv.implementacao.SrvEstadoImpl" />
 	<bean id="SrvPais" class="br.com.helpIT.srv.implementacao.SrvPaisImpl" />
 	<bean id="SrvSetor" class="br.com.helpIT.srv.implementacao.SrvSetorImpl" />
 	<bean id="SrvCargo" class="br.com.helpIT.srv.implementacao.SrvCargoImpl" />
+	<bean id="srvEntidade" class="br.com.helpIT.srv.implementacao.SrvEntidadeImpl" /> 
+-->		
 </beans>
