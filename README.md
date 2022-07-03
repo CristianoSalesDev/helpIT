@@ -22,5 +22,7 @@
  <a href="https://www.linkedin.com/in/cristiano-aragao-43864954" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a>  
 </div>  
 
+##
+
 # helpIT
-Projeto JSF, PrimeFaces, Spring Framework, Hibernate, Postgree. Treinamento e Armazenamento de Processos.
+Projeto JSF, PrimeFaces, Spring Framework, Hibernate, Postgree.
