@@ -138,8 +138,8 @@
 					         <sec:ifAnyGranted roles="INTEGRACAO_ACESSAR, ADMIN">
 					         
 					         	<p:submenu label="Integracao" id="subMenuIntegracao">
-					               <p:menuitem value="Máxima" id="menumaxima" onclick="redirecionarPagina('#{request.contextPath}','/restrito/emDesenvolvimento');" ajax="true" />   
-					               <p:menuitem value="Polibrás" id="menupolibras" onclick="redirecionarPagina('#{request.contextPath}','/restrito/emDesenvolvimento');" ajax="true" />
+					               <p:menuitem value="Máxima" id="menumaxima" onclick="redirecionarPagina('#{request.contextPath}','/publico/emDesenvolvimento');" ajax="true" />   
+					               <p:menuitem value="Polibrás" id="menupolibras" onclick="redirecionarPagina('#{request.contextPath}','/publico/emDesenvolvimento');" ajax="true" />					            
 					            </p:submenu>	
 					            	            
 					         </sec:ifAnyGranted>
@@ -147,6 +147,7 @@
 				             <p:menuitem value="Início" id="menuinicio" onclick="redirecionarPagina('#{request.contextPath}','/restrito/principal');" ajax="true" />
 				            
 				             <p:menuitem value="Sair" id="menusair" onclick="javascript:logout('#{request.contextPath}');" ajax="true"/>
+				             				             
 				          </p:tieredMenu>				       
 				    </div>				    
                  </div> 
