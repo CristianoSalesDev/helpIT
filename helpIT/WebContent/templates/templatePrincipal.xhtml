@@ -112,22 +112,22 @@
 					            <p:submenu label="Cadastros" id="subMenuCadastro">
 					     
 					                 <sec:ifAnyGranted roles="CARGO_ACESSAR, ADMIN">	 
-							            <p:menuitem value="Cargo" id="menuCargo" action="#{cargoBeanView.redirecionarFindEntidade}"
+							            <p:menuitem value="Cargos" id="menuCargo" action="#{cargoBeanView.redirecionarFindEntidade}"
 							                        immediate="true"/>
  						             </sec:ifAnyGranted>					            
 					    
 					                 <sec:ifAnyGranted roles="CIDADE_ACESSAR, ADMIN">	 
-							            <p:menuitem value="Cidade" id="menuCidade" action="#{cidadeBeanView.redirecionarFindEntidade}"
+							            <p:menuitem value="Cidades" id="menuCidade" action="#{cidadeBeanView.redirecionarFindEntidade}"
 							                        immediate="true"/>
  						             </sec:ifAnyGranted>
  						   
 					                 <sec:ifAnyGranted roles="FUNCIONARIO_ACESSAR, ADMIN">	 
-							            <p:menuitem value="Funcionário" id="menuFuncionario" action="#{funcionarioBeanView.redirecionarFindEntidade}"
+							            <p:menuitem value="Funcionários" id="menuFuncionario" action="#{funcionarioBeanView.redirecionarFindEntidade}"
 							                        immediate="true"/>
  						             </sec:ifAnyGranted> 						             
                                     						               
 					                 <sec:ifAnyGranted roles="SETOR_ACESSAR, ADMIN">	 
-							            <p:menuitem value="Setor" id="menuSetor" action="#{setorBeanView.redirecionarFindEntidade}"
+							            <p:menuitem value="Setores" id="menuSetor" action="#{setorBeanView.redirecionarFindEntidade}"
 							                        immediate="true"/>
  						             </sec:ifAnyGranted>
  						   						             
@@ -138,15 +138,40 @@
 					         <sec:ifAnyGranted roles="INTEGRACAO_ACESSAR, ADMIN">
 					         
 					         	<p:submenu label="Integracao" id="subMenuIntegracao">
-					               <p:menuitem value="Máxima" id="menumaxima" onclick="redirecionarPagina('#{request.contextPath}','/publico/emDesenvolvimento');" ajax="true" />   
-					               <p:menuitem value="Polibrás" id="menupolibras" onclick="redirecionarPagina('#{request.contextPath}','/publico/emDesenvolvimento');" ajax="true" />					            
-					            </p:submenu>	
+					         	   <sec:ifAnyGranted roles="INTEGRACAO_ACESSAR, ADMIN">
+					                  <p:menuitem value="Máxima" id="menuMaxima" onclick="redirecionarPagina('#{request.contextPath}','/publico/emDesenvolvimento');" ajax="true" />   
+					                  <p:menuitem value="Polibrás" id="menuPolibras" onclick="redirecionarPagina('#{request.contextPath}','/publico/emDesenvolvimento');" ajax="true" />					            					                                                        
+					                  <p:menuitem value="IzySoft/Talkisy" id="menuIzySoft" onclick="redirecionarPagina('#{request.contextPath}','/publico/emDesenvolvimento');" ajax="true" />
+					               </sec:ifAnyGranted>   					            
+					            </p:submenu>			         								            	
 					            	            
 					         </sec:ifAnyGranted>
+					         
+							 <sec:ifAnyGranted roles="PROCESSOS_ACESSAR, ADMIN">							 									
+								<p:submenu label="Almanaque de Processos" id="subMenuAlmanaqueProcessos">
+                                   <p:menuitem value="Compras" id="menuCompra" onclick="redirecionarPagina('#{request.contextPath}','/publico/emDesenvolvimento');" ajax="true" />
+					               <p:menuitem value="Contabilidade" id="menuContabilidade" onclick="redirecionarPagina('#{request.contextPath}','/publico/emDesenvolvimento');" ajax="true" />
+					               <p:menuitem value="Contas a Pagar" id="menuContasPagar" onclick="redirecionarPagina('#{request.contextPath}','/publico/emDesenvolvimento');" ajax="true" />
+					               <p:menuitem value="Contas a Receber" id="menuContasReceber" onclick="redirecionarPagina('#{request.contextPath}','/publico/emDesenvolvimento');" ajax="true" />
+					               <p:menuitem value="Departamento Pessoal" id="menuDepartamentoPessoal" onclick="redirecionarPagina('#{request.contextPath}','/publico/emDesenvolvimento');" ajax="true" />
+					               <p:menuitem value="Desenvolvimento Humano" id="menuDesenvolvimentoHumano" onclick="redirecionarPagina('#{request.contextPath}','/publico/emDesenvolvimento');" ajax="true" />
+					               <p:menuitem value="Recebimento" id="menuRecebimento" onclick="redirecionarPagina('#{request.contextPath}','/publico/emDesenvolvimento');" ajax="true" />
+					               <p:menuitem value="Faturamento" id="menuFaturamento" onclick="redirecionarPagina('#{request.contextPath}','/publico/emDesenvolvimento');" ajax="true" />
+					               <p:menuitem value="TI - Informática" id="menuTI" onclick="redirecionarPagina('#{request.contextPath}','/publico/emDesenvolvimento');" ajax="true" />
+					               <p:menuitem value="Logística" id="menuLogistica" onclick="redirecionarPagina('#{request.contextPath}','/publico/emDesenvolvimento');" ajax="true" />
+					               <p:menuitem value="Manutenção" id="menuManutencao" onclick="redirecionarPagina('#{request.contextPath}','/publico/emDesenvolvimento');" ajax="true" />
+					               <p:menuitem value="Oficina" id="menuOficina" onclick="redirecionarPagina('#{request.contextPath}','/publico/emDesenvolvimento');" ajax="true" />
+					               <p:menuitem value="Portaria" id="menuPortaria" onclick="redirecionarPagina('#{request.contextPath}','/publico/emDesenvolvimento');" ajax="true" />
+					               <p:menuitem value="Recepção" id="menuRecepcao" onclick="redirecionarPagina('#{request.contextPath}','/publico/emDesenvolvimento');" ajax="true" />
+					               <p:menuitem value="Teusoraria" id="menuTeusoraria" onclick="redirecionarPagina('#{request.contextPath}','/publico/emDesenvolvimento');" ajax="true" />
+					               <p:menuitem value="Transporte" id="menuTransporte" onclick="redirecionarPagina('#{request.contextPath}','/publico/emDesenvolvimento');" ajax="true" />
+					               <p:menuitem value="Vendas" id="menuVendas" onclick="redirecionarPagina('#{request.contextPath}','/publico/emDesenvolvimento');" ajax="true" />					                                               
+						        </p:submenu>
+					         </sec:ifAnyGranted>         
 					         				          
-				             <p:menuitem value="Início" id="menuinicio" onclick="redirecionarPagina('#{request.contextPath}','/restrito/principal');" ajax="true" />
+				             <p:menuitem value="Início/Menu" id="menuInicio" onclick="redirecionarPagina('#{request.contextPath}','/restrito/principal');" ajax="true" />
 				            
-				             <p:menuitem value="Sair" id="menusair" onclick="javascript:logout('#{request.contextPath}');" ajax="true"/>
+				             <p:menuitem value="Sair" id="menuSair" onclick="javascript:logout('#{request.contextPath}');" ajax="true"/>
 				             				             
 				          </p:tieredMenu>				       
 				    </div>				    

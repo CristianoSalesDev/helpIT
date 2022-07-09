@@ -13,6 +13,7 @@ public enum Permissao {
     FINANCIERO_ACESSAR("FINANCIERO_ACESSAR", "Financeiro - Acessar"),
 	MENSAGEM_ACESSAR("MENSAGEM_ACESSAR", "Mensagem Recebida - Acessar"),
 	INTEGRACAO_ACESSAR("INTEGRACAO_ACESSAR", "Integracao - Acessar"),
+	PROCESSOS_ACESSAR("PROCESSOS_ACESSAR", "Almanaque de Processos - Acessar"),								
 	
 	BAIRRO_ACESSAR("BAIRRO_ACESSAR", "Bairro - Acessar"),
 	BAIRRO_NOVO("BAIRRO_NOVO", "Bairro - Novo"),
