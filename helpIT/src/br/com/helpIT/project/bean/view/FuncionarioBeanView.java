@@ -13,6 +13,7 @@ import br.com.helpIT.model.classes.Entidade;
 import br.com.helpIT.project.bean.geral.BeanManagedViewAbstract;
 import br.com.helpIT.project.carregamento.lazy.CarregamentoLazyListForObject;
 import br.com.helpIT.project.geral.controller.EntidadeController;
+import br.com.helpIT.project.util.all.Mensagens;
 
 @Controller
 @Scope("session")
@@ -50,7 +51,7 @@ public class FuncionarioBeanView extends BeanManagedViewAbstract implements Seri
 	@Override
 	public String condicaoAndParaPesquisa() throws Exception {
 		
-		return " and entity.tipoEntidade = 'FUNCIONARIO' ";		
+		return " and entity.tipoEntidade in ('FUNCIONARIO','ADMIN','USUARIO','PROMOTOR','CONSULTOR') ";		
 	}
 	
 	@Override
@@ -85,6 +86,8 @@ public class FuncionarioBeanView extends BeanManagedViewAbstract implements Seri
 	@Override
 	public String novo() throws Exception {
 		setarVariaveisNulas();
+//		objetoSelecionado = new Entidade();
+//		list.clean();
 		return url;
 	}
 	
@@ -97,6 +100,31 @@ public class FuncionarioBeanView extends BeanManagedViewAbstract implements Seri
 				objetoSelecionado = new Entidade();
 				sucesso();
 			}
-	}	
+	}
+	
+	@Override
+	public void saveNotReturn() throws Exception {
+        if (!objetoSelecionado.getAcessos().contains("USUARIO")) {
+        	objetoSelecionado.getAcessos().add("USUARIO");	
+        }
+        objetoSelecionado = entidadeController.merge(objetoSelecionado);
+        list.add(objetoSelecionado);
+        objetoSelecionado = new Entidade();
+        sucesso();
+	}
+	
+	@Override
+	public void saveEdit() throws Exception {
+        objetoSelecionado = entidadeController.merge(objetoSelecionado);
+        list.add(objetoSelecionado);
+        objetoSelecionado = new Entidade();
+        Mensagens.msgSeverityInfor("Atualizado com Sucesso!!!");
+	}
+	
+	@Override
+	public String editar() throws Exception {
+	   list.clean();
+       return url;
+	}
 
 }

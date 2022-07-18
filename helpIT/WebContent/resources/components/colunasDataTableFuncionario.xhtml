@@ -34,7 +34,7 @@
          <f:facet name="header">Excluir</f:facet>
          <c:choose>
             <c:when test="${isCadastro == false}">
-               <p:commandLink action="#{funcionarioBeanView.excluir}" id="buttonColunaExcluir" partialSubmit="true" process="@this" ajax="true" immediate="true" update="tableResult" onfocus="addFocoAoCampo('ent_apelido');" onclick="if(!confirm('Confirma a exclusão do funcionário: #{objeto.ent_apelido}?')) return false;">
+               <p:commandLink action="#{funcionarioBeanView.excluir}" id="buttonColunaExcluir" partialSubmit="true" process="@this" ajax="false" immediate="true" update="tableResult" onfocus="addFocoAoCampo('ent_apelido');" onclick="if(!confirm('Confirma a exclusão do funcionário: #{objeto.ent_apelido}?')) return false;">
                   <h:graphicImage library="img" name="excluir16.png" styleClass="bordaImagem" />
                   <f:setPropertyActionListener target="#{funcionarioBeanView.objetoSelecionado}" value="#{objeto}" />
                </p:commandLink>
@@ -51,7 +51,7 @@
    <p:column style="width:50px;">
       <center>
          <f:facet name="header">Editar</f:facet>
-         <p:commandLink immediate="true" action="#{funcionarioBeanView.editar}" ajax="true" id="editarBairro" oncomplete="addFocoAoCampo('ent_nomefantasia');">
+         <p:commandLink immediate="true" action="#{funcionarioBeanView.editar}" ajax="true" id="editarBairro" oncomplete="addFocoAoCampo('ent_apelido');">
             <h:graphicImage library="img" name="editar16.png" styleClass="bordaImagem" />
             <f:setPropertyActionListener value="#{objeto}" target="#{funcionarioBeanView.objetoSelecionado}" />
          </p:commandLink>

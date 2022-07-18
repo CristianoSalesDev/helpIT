@@ -26,20 +26,141 @@
 	        
 			<p:panel id="panelCadastro">			
 				<p:panelGrid id="gridfunc" columns="3">
-					<h:outputLabel for="id" value="Código : " id="labelId" />
-					<p:inputText id="id" styleClass="estiloIdCastro" disabled="true" value="#{funcionarioBeanView.objetoSelecionado.ent_codigo}"/>						
-					<h:outputLabel />
+				    <p:column>
+				       <p:row>
+					      <p:outputLabel for="id" value="Código : " id="labelId" />
+					   </p:row>
+					</p:column>
 					
-                    <h:outputLabel id="labelNomeConsultaFunc" for="funcNome" value="Nome * :" />
-					<p:inputText id="funcNome" value="#{funcionarioBeanView.objetoSelecionado.ent_apelido}" styleClass="estyleInputName" required="true" maxlength="100" requiredMessage="Informe o nome do funcionário." />
-					<p:message for="funcNome" />					
+					<p:column>
+					   <p:row>
+					      <p:inputText id="id" styleClass="estiloIdCastro" disabled="true" value="#{funcionarioBeanView.objetoSelecionado.ent_codigo}"/>
+					   </p:row>			
+					</p:column>
+					
+					<p:column/>
+					
+		            <p:column>
+		               <p:row>
+                          <p:outputLabel id="labelNomeFunc" for="funcNome" value="Nome:" />
+                       </p:row>   
+                    </p:column>
+                       
+                    <p:column>
+                       <p:row>   
+					      <p:inputText id="funcNome" value="#{funcionarioBeanView.objetoSelecionado.ent_apelido}" styleClass="estyleInputName" required="true" maxlength="100" requiredMessage="Informe o nome do funcionário." />
+					   </p:row>   
+					</p:column>					
+					
+                    <p:column>
+                       <p:row>   
+					      <p:message for="funcNome" />
+					   </p:row>   
+					</p:column>					
+					
+		            <p:column>
+		               <p:row>
+                          <p:outputLabel id="labelTipoFunc" for="funcTipo" value="Tipo:"/>
+                       </p:row>   
+                    </p:column>
+                       
+                    <p:column>
+                       <p:row>   
+					      <p:selectOneMenu id="funcTipo" required="true" requiredMessage="Informe o Tipo." 
+					                       value="#{funcionarioBeanView.objetoSelecionado.tipoEntidade}">
+					         <f:selectItem itemValue="FUNCIONARIO" itemLabel="Colaborador"/>
+					         <f:selectItem itemValue="CONSULTOR" itemLabel="Consultor de Vendas"/>
+					         <f:selectItem itemValue="PROMOTOR" itemLabel="Promotor de Vendas"/>
+					         <f:selectItem itemValue="ADMIN" itemLabel="Administrador"/>
+					         <f:selectItem itemValue="USUARIO" itemLabel="Usuário"/>
+					      </p:selectOneMenu>
+					   </p:row>   
+					</p:column>					
+					
+                    <p:column>
+                       <p:row>   
+					      <p:message for="funcTipo" />
+					   </p:row>   
+					</p:column>
+					
+		            <p:column>
+		               <p:row>
+                          <p:outputLabel id="labelAtivoFunc" for="funcAtivo" value="Inativo:" />
+                       </p:row>   
+                    </p:column>
+                       
+                    <p:column>
+                       <p:row>   
+                          <p:selectBooleanCheckbox id="funcAtivo" value="#{funcionarioBeanView.objetoSelecionado.ent_inativo}"/>					        
+					   </p:row>   
+					</p:column>					
+					
+                    <p:column>
+                       <p:row>   
+					      <p:message for="funcAtivo" />
+					   </p:row>   
+					</p:column>										
+				
+		            <p:column>
+		               <p:row>
+                          <p:outputLabel id="labelEmailFunc" for="funcEmail" value="Email:" />
+                       </p:row>   
+                    </p:column>
+                       
+                    <p:column>
+                       <p:row>   
+					      <p:inputText id="funcEmail" value="#{funcionarioBeanView.objetoSelecionado.ent_email}" styleClass="estyleInputName" required="true" maxlength="100" requiredMessage="Informe o Email." />
+					   </p:row>   
+					</p:column>					
+					
+                    <p:column>
+                       <p:row>   
+					      <p:message for="funcEmail" />
+					   </p:row>   
+					</p:column>					
+					
+		            <p:column>
+		               <p:row>
+                          <p:outputLabel id="labelLoginFunc" for="funcLogin" value="Login:" />
+                       </p:row>   
+                    </p:column>
+                       
+                    <p:column>
+                       <p:row>   
+					      <p:inputText id="funcLogin" value="#{funcionarioBeanView.objetoSelecionado.ent_login}" required="true" maxlength="80" requiredMessage="Informe o Login." />
+					   </p:row>   
+					</p:column>					
+					
+                    <p:column>
+                       <p:row>   
+					      <p:message for="funcLogin" />
+					   </p:row>   
+					</p:column>					
+					
+		            <p:column>
+		               <p:row>
+                          <p:outputLabel id="labelSenhaFunc" for="funcSenha" value="Senha:" />
+                       </p:row>   
+                    </p:column>
+                       
+                    <p:column>
+                       <p:row>   
+					      <p:password id="funcSenha" value="#{funcionarioBeanView.objetoSelecionado.ent_senha}" required="true" maxlength="80" requiredMessage="Informe a Senha." />
+					   </p:row>   
+					</p:column>					
+					
+                    <p:column>
+                       <p:row>   
+					      <p:message for="funcSenha" />
+					   </p:row>   
+					</p:column>					
 	            </p:panelGrid>            
 	        </p:panel>	  
             	            
             <div class="espacoBranco"/>
             
             <util:botoesCrud managedBeanView="#{funcionarioBeanView}" 
-                camposReload=":formTemplate:msg, tableResul"
+                camposReload=":formTemplate:msg, tableResult"
                 botaoNovo="#{contextoBeanView.possuiAcesso('FUNCIONARIO_NOVO', 'ADMIN')}"
                 botaoSalvar="#{contextoBeanView.possuiAcesso('FUNCIONARIO_NOVO', 'ADMIN') and funcionarioBeanView.objetoSelecionado.ent_codigo == null}"
                 botaoAtualizar="#{contextoBeanView.possuiAcesso('FUNCIONARIO_EDITAR', 'ADMIN') and funcionarioBeanView.objetoSelecionado.ent_codigo != null}">            

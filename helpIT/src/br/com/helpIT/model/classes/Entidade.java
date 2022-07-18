@@ -41,17 +41,18 @@ public class Entidade implements Serializable {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_entidade")
 	private Long ent_codigo;	
 	
+	@IdentificaCampoPesquisa(descricaoCampo = "Login", campoConsulta = "ent_login", principal = 1)
 	private String ent_login = null;
 	
 	private String ent_senha;
 	
 	private boolean ent_inativo = false ;
 
-	@IdentificaCampoPesquisa(descricaoCampo = "Nome", campoConsulta = "ent_apelido", principal = 1)
+	@IdentificaCampoPesquisa(descricaoCampo = "Nome", campoConsulta = "ent_apelido", principal = 2)
 	private String ent_apelido;
 	
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date Ent_ultimoacesso;
+	private Date ent_ultimoacesso;
 	
 	private String tipoEntidade = "";
 	
@@ -95,13 +96,13 @@ public class Entidade implements Serializable {
 	public void setEnt_inativo(boolean ent_inativo) {
 		this.ent_inativo = ent_inativo;
 	}
-
+	
 	public Date getEnt_ultimoacesso() {
-		return Ent_ultimoacesso;
+		return ent_ultimoacesso;
 	}
 
 	public void setEnt_ultimoacesso(Date ent_ultimoacesso) {
-		Ent_ultimoacesso = ent_ultimoacesso;
+		this.ent_ultimoacesso = ent_ultimoacesso;
 	}
 
 	public String getEnt_apelido() {
